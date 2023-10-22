@@ -1,0 +1,8 @@
+{% extends "../generic_base.html" %}
+
+{% block title %}{{ task.summary }}{% endblock %}
+
+{% block content %}
+    <h1>{{ task.summary }}</h1>
+    <p>{{ task.task }}</p>
+{% endblock %}

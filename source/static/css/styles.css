@@ -4,3 +4,7 @@ h1 {
     font-weight: bold;
     text-align: center;
 }
+
+body {
+    background: linear-gradient(to left, #FFE77A 60%, #2C5F2D 40%);
+}

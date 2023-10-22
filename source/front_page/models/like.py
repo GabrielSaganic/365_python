@@ -4,15 +4,9 @@ from django.db import models
 
 class Like(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    task = models.ForeignKey(
-        "front_page.Task", null=True, blank=True, on_delete=models.CASCADE
-    )
-    comment = models.ForeignKey(
-        "front_page.Comment", null=True, blank=True, on_delete=models.CASCADE
-    )
-    solution = models.ForeignKey(
-        "front_page.Solution", null=True, blank=True, on_delete=models.CASCADE
-    )
+    task = models.ForeignKey("front_page.Task", null=True, blank=True, on_delete=models.CASCADE)
+    comment = models.ForeignKey("front_page.Comment", null=True, blank=True, on_delete=models.CASCADE)
+    solution = models.ForeignKey("front_page.Solution", null=True, blank=True, on_delete=models.CASCADE)
 
     class Meta:
         indexes = [
