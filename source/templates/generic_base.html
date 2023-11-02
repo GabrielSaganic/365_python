@@ -4,20 +4,31 @@
 <head>
     <title>{% block title %}365 Python{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/prism.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/themes/prism.min.css">
 </head>
 <body>
     <header>
         <h1>365 Python</h1>
     </header>
-    <nav>
+    {% comment %} <nav>
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/about/">About</a></li>
         </ul>
-    </nav>
+    </nav> {% endcomment %}
     <main>
-        {% block content %}
-        {% endblock %}
+        <div class="container">
+            <div class="left-div">
+                {% block left_content %}
+                {% endblock %}
+            </div>
+            <div class="right-div">
+                {% block right_content %}
+                {% endblock %}
+            </div>
+        </div>
+          
     </main>
     <footer>
         &copy; {{ year }} My Website

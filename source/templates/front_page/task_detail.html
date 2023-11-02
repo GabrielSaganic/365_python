@@ -1,8 +1,17 @@
 {% extends "../generic_base.html" %}
 
+{% load static %}
+
 {% block title %}{{ task.summary }}{% endblock %}
 
-{% block content %}
-    <h1>{{ task.summary }}</h1>
-    <p>{{ task.task }}</p>
+{% block left_content %}
+    <div>
+        <left_h1>{{ task.summary }}</left_h1>
+        <p>{{ task.task }}</p>
+    </div>
+{% endblock %}
+{% block right_content %}
+    <div id="editor"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.1/ace.js"></script>
+    <script src="{% static 'script/ace_ide_editor.js' %}"></script>
 {% endblock %}
