@@ -20,7 +20,7 @@ class LikeAdmin(admin.ModelAdmin):
 
 @admin.register(models.Solution)
 class SolutionAdmin(admin.ModelAdmin):
-    list_display = ("user", "task", "_get_reaction", "created_at")
+    list_display = ("user", "task", "get_reaction", "created_at")
 
 
 @admin.register(models.Task)
@@ -28,5 +28,5 @@ class TaskAdmin(admin.ModelAdmin):
     list_display = (
         "summary",
         "date_of_task",
-        "_get_reaction",
+        "get_reaction",
     )

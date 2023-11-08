@@ -23,7 +23,7 @@ class Comment(models.Model):
         return "Invalid comment"
 
     @property
-    def _get_reaction(self) -> int:
+    def get_reaction(self) -> int:
         from front_page.models import Dislike, Like
 
         like = Like.objects.filter(comment=self).count()

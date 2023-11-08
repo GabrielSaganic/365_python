@@ -1,3 +1,4 @@
+from datetime import datetime
 import uuid
 
 from django.db import models
@@ -15,8 +16,12 @@ class Task(models.Model):
     def __str__(self) -> str:
         return self.summary
 
+    @classmethod
+    def get_today_task(cls):
+        return cls.objects.get(date_of_task=datetime.today())
+
     @property
-    def _get_reaction(self) -> int:
+    def get_reaction(self) -> int:
         from front_page.models import Dislike, Like
 
         like = Like.objects.filter(task=self).count()
@@ -24,8 +29,8 @@ class Task(models.Model):
 
         return like - dislike
 
-    def _get_comments(self) -> QuerySet[Comment]:
+    def get_comments(self) -> QuerySet[Comment]:
         return Comment.objects.filter(task=self).order_by("-created_at")
 
-    def _get_solutions(self) -> QuerySet[Solution]:
+    def get_solutions(self) -> QuerySet[Solution]:
         return Solution.objects.filter(task=self)

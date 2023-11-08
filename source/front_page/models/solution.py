@@ -17,8 +17,12 @@ class Solution(models.Model):
     def __str__(self) -> str:
         return f"{self.user.get_username()} - {self.task.summary}"
 
+    @classmethod
+    def get_today_solutions(cls, task):
+        return cls.objects.filter(task=task)
+
     @property
-    def _get_reaction(self) -> int:
+    def get_reaction(self) -> int:
         from front_page.models import Dislike, Like
 
         like = Like.objects.filter(solution=self).count()
@@ -26,5 +30,5 @@ class Solution(models.Model):
 
         return like - dislike
 
-    def _get_comments(self) -> QuerySet[Comment]:
+    def get_comments(self) -> QuerySet[Comment]:
         return Comment.objects.filter(solution=self).order_by("-created_at")

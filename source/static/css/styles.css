@@ -74,13 +74,12 @@ p {
     font-size: 20px;
 }
 
-.scrollable-paragraph {
+.scrollable-paragraph-90 {
     flex-grow: 1;
     Overflow-x: scroll;
     Overflow-y: scroll; 
     height: 90%;
 }
-
 
 #editor { 
     height: 67%;    
@@ -100,4 +99,52 @@ p {
     color: white;
     padding-top: 2%;
     padding-bottom: 1%;
+}
+
+/* CSS for solution list */
+.solution_box{
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    background-color: white;
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.styled-line {
+    border: none;
+    height: 1px;
+    background-color: gray; 
+    width: 97%;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.gray-small-text{
+    font-size: 14px; 
+    color: gray;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.solution-text-box {
+    flex: 1;
+    Overflow-x: scroll;
+    Overflow-y: scroll; 
+}
+.horizontal-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.like-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.just-text-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

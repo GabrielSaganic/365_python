@@ -6,15 +6,16 @@
 
 {% block left_content %}
     <left_h1>{{ task.summary }}</left_h1>
-    <p class="scrollable-paragraph">{{ task.task }}</p>
+    <p class="scrollable-paragraph-90">{{ task.task }}</p>
 {% endblock %}
 {% block right_content %}
 
     <right_h1>Your code...</right_h1>
     <div id="editor"></div>
-    <div id="buttons_div"> <button id="run_button" type="button">Run!</button>  <button type="button">Commit!</button> </div>
-    <p id="console_log" class="scrollable-paragraph"></p>
+    <div id="buttons_div"> <button id="run_button" type="button">Run!</button>  <button id="commit_button" type="button">Commit!</button> </div>
+    <p id="console_log" class="scrollable-paragraph-90"></p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.1/ace.js"></script>
     <script src="{% static 'script/ace_ide_editor.js' %}"></script>
+    <script src="{% static 'script/post_solution.js' %}"></script>
 {% endblock %}
