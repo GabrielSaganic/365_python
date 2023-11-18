@@ -13,7 +13,7 @@ const aceEditor = ace.edit(editor, {
 document.getElementById("run_button").addEventListener("click", function () {
     const text = aceEditor.getValue();
 
-    fetch("http://127.0.0.1:8000/run-code/", {
+    fetch("http://localhost:8000/run-code/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

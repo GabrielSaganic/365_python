@@ -112,6 +112,23 @@ p {
     padding-bottom: 5px;
 }
 
+.post_comment_box{
+    display: flex;
+    flex-direction: row;
+    /* height: 5%; */
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+}
+
+.comment_box{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+}
+
 .styled-line {
     border: none;
     height: 1px;
@@ -127,6 +144,12 @@ p {
     font-family: "Times New Roman", Times, serif;
 }
 
+.comment-text{
+    font-size: 18px; 
+    color: rgb(0, 0, 0);
+    font-family: "Times New Roman", Times, serif;
+    margin-bottom: 10px;
+}
 .solution-text-box {
     flex: 1;
     Overflow-x: scroll;
@@ -137,14 +160,65 @@ p {
     justify-content: space-between;
 }
 
+.just-text-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .like-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.just-text-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+.post_comment_box{
+    display: flex;
+    flex-direction: row;
+    /* height: 5%; */
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+}
+
+textarea {
+    resize: none;
+    width: 90%;
+    flex-grow: 1; 
+}
+
+#post-comment-button {
+  flex-shrink: 0;
+  margin-left: 5px;
+  height: 20%;
+  align-self: flex-end;
+  background-color: #7A92FF;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  padding: 5px 10px;
+  text-align: center;
+  transition: 200ms;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 12px;
+  touch-action: manipulation;
+}
+
+#post-comment-button:not(:disabled):hover,
+#post-comment-button:not(:disabled):focus {
+  outline: 0;
+  background: #7A92FF;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+#post-comment-button:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
+
+.solution_box:hover {
+	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+    box-shadow:0 0 20px blue;
 }

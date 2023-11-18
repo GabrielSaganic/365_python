@@ -17,9 +17,12 @@ document.querySelectorAll('.like-button').forEach(button => {
         .then(response => response.json())
         .then(data => {
             if (data.output) {
-
                 const outputDiv = document.getElementById("reaction_" + solutionId);
                 outputDiv.textContent = data.output;
+
+                const likeBUtton = document.getElementById("like_button_" + solutionId);
+                likeBUtton.disabled = true
+
             } else if (data.error) {
                 console.error("Error:", data.error);
             }

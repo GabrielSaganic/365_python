@@ -12,26 +12,34 @@
 
     <right_h1>Browse best solutions</right_h1>
     {% for solution in solutions %}
-    <div class="solution_box">
-        <p class="gray-small-text">{{ solution.user }}</p>
-        <hr class="styled-line">
-        <div class="solution-text-box">
-            <p>{{ solution.solution }}</p>
-        </div>
-        <hr class="styled-line">
-        <div class="horizontal-container">
-            <div class="horizontal-container">
-                <button class="like-button" data-solution-id="{{ solution.id }}">
-                    <p class="gray-small-text">Like</p>
-                </button>
-                <p class="gray-small-text" id="reaction_{{ solution.id }}">{{ solution.get_reaction }}</p>
-                <button id="add_comment" class="just-text-button" data-solution-id="{{ solution.id }}">
-                    <p class="gray-small-text">Add comment</p>
-                </button>
+    <a href="http://localhost:8000/solution-list/{{ solution.id }}/" style="text-decoration: none; color: inherit;">
+        <div class="solution_box">
+            <p class="gray-small-text">{{ solution.user }}</p>
+            <hr class="styled-line">
+            <div class="solution-text-box">
+                <p>{{ solution.solution }}</p>
             </div>
-            <div class="element-right"><p class="gray-small-text">{{ solution.created_at }}</p></div>
+            <hr class="styled-line">
+            <div class="horizontal-container">
+                <div class="horizontal-container">
+                    <button 
+                        class="like-button" 
+                        id="like_button_{{ solution.id }}" 
+                        data-solution-id="{{ solution.id }}" 
+                        {% if solution.id in liked_solution %}disabled{% endif %}
+                    >
+                        <p class="gray-small-text">Like</p>
+                    </button>
+                    <p class="gray-small-text" id="reaction_{{ solution.id }}">{{ solution.get_reaction }}</p>
+                    <button id="add_comment" class="just-text-button" data-solution-id="{{ solution.id }}">
+                        <p class="gray-small-text">Add comment</p>
+                    </button>
+                </div>
+                <div class="element-right"><p class="gray-small-text">{{ solution.created_at }}</p></div>
+            </div>
         </div>
-    </div>
+    </a>
+
     {% endfor %}
     <script src="{% static 'script/solution_reaction.js' %}"></script>
 {% endblock %}

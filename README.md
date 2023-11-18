@@ -12,3 +12,9 @@ opening solution detail
 
 profile and achivement tab
 
+whole javascript need refactoring
+
+fix date to me the same when post comment also replace stupid solution with replace
+
+
+order commetn by date
