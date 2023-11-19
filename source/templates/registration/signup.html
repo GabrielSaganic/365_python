@@ -1,0 +1,41 @@
+{% extends "../generic_base.html" %}
+
+{% block title %}{{ object.id }}Sign Up{% endblock %}
+
+{% block right_content %}
+<div class="auth-form">
+    <h2>Registration</h2>
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <table>
+            <tbody>
+                <tr>
+                    <td><i class="fa-solid fa-envelope" style="color: #1c71d8;"></i></td>
+                    <td>{{ form.username }}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><i class="fa-solid fa-envelope" style="color: #1c71d8;"></i></td>
+                    <td>{{ form.email }}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><i class="fa-solid fa-envelope" style="color: #1c71d8;"></i></td>
+                    <td>{{ form.password1 }}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><i class="fa-solid fa-envelope" style="color: #1c71d8;"></i></td>
+                    <td>{{ form.password2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p class="gray-small-text">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+
+{% endblock %}

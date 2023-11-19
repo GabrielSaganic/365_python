@@ -28,15 +28,12 @@
                     <p class="gray-small-text">Like</p>
                 </button>
                 <p class="gray-small-text" id="reaction_{{ object.id }}">{{ object.get_reaction }}</p>
-                <button id="add_comment" class="just-text-button" data-solution-id="{{ object.id }}">
-                    <p class="gray-small-text">Add comment</p>
-                </button>
             </div>
             <div class="element-right"><p class="gray-small-text">{{ object.created_at }}</p></div>
         </div>
     </div>
     <div class="post_comment_box">
-        <textarea rows="5" id="comment-text">Enter text here...</textarea>
+        <textarea rows="5" id="comment-text" placeholder="Add comment..."></textarea>
         <button onclick="postComment('{{ object.id }}')" id="post-comment-button">POST</button>
     </div>
     <div id="comment_box" class="comment_box">

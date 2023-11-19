@@ -150,11 +150,13 @@ p {
     font-family: "Times New Roman", Times, serif;
     margin-bottom: 10px;
 }
+
 .solution-text-box {
     flex: 1;
     Overflow-x: scroll;
     Overflow-y: scroll; 
 }
+
 .horizontal-container {
     display: flex;
     justify-content: space-between;
@@ -218,7 +220,40 @@ textarea {
   cursor: not-allowed;
 }
 
-.solution_box:hover {
-	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
-    box-shadow:0 0 20px blue;
+
+.auth-form{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input {
+color: rgba(0,0,0,.87);
+border-bottom-color: rgba(0,0,0,.42);
+font-size: 1rem;
+font-weight: 400;
+letter-spacing: .009375em;
+text-decoration: inherit;
+text-transform: inherit;
+align-self: flex-end;
+box-sizing: border-box;
+width: 100%;
+padding: 20px 16px 6px;
+transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+border: none;
+border-bottom: 1px solid;
+border-radius: 4px 4px 0 0;
+background: rgb(245, 245, 245);
+height: 56px;
+}
+input:hover{
+    border-bottom-color: rgba(0,0,0,.87);
+    background: #ececec;
+}
+input:focus{
+    border-color: #6200ee;
 }
