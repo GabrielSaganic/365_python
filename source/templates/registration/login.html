@@ -3,13 +3,29 @@
 {% block title %}{{ object.id }} Login{% endblock %}
 
 {% block right_content %}
-    <h2>Login</h2>
-
-    <form method="post" action="{% url 'login' %}">
+<div class="auth-form">
+    
+    <h2 class="form-title">Login</h2>
+    <form method="post" action="{% url 'signup' %}" class="sign-up-form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
+        <table class="sign-up-table">
+            <tbody>
+                <tr>
+                    <td>Email:</td>
+                </tr>
+                <tr>
+                    <td class="label-row">{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                </tr>
+                <tr>
+                    <td class="label-row">{{ form.password }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="submit-button">Log In</button>
     </form>
-
-    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+    <p class="gray-small-text">Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+</div>
 {% endblock %}

@@ -20,6 +20,7 @@ whole javascript need refactoring
 
 fix date to me the same when post comment also replace stupid solution with replace
 
+docker
 
 order commetn by date
 

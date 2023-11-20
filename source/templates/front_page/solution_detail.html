@@ -34,7 +34,7 @@
     </div>
     <div class="post_comment_box">
         <textarea rows="5" id="comment-text" placeholder="Add comment..."></textarea>
-        <button onclick="postComment('{{ object.id }}')" id="post-comment-button">POST</button>
+        <button onclick="postComment('{{ object.id }}')" id="post-comment-button" class="post-comment-button">POST</button>
     </div>
     <div id="comment_box" class="comment_box">
         {% for comment in object.comment_set.all %}
