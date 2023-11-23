@@ -5,7 +5,7 @@
 {% block right_content %}
 <div class="auth-form">
     <h2 class="form-title">Registration</h2>
-    <form method="post" action="{% url 'signup' %}" class="sign-up-form">
+    <form method="post" action="{% url 'account:signup' %}" class="sign-up-form">
         {% csrf_token %}
         <div class="sign-up-div">
             <table class="sign-up-table">
@@ -50,7 +50,12 @@
 
         <button type="submit" class="submit-button">Sign Up</button>
     </form>
-    <p class="gray-small-text">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    <p class="gray-small-text">Already have an account? <a href="{% url 'account:login' %}">Login</a></p>
 </div>
 
+<style>
+    .auth-btn {
+        display: none;
+    }
+</style>
 {% endblock %}

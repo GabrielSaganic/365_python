@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
 from front_page.models import Task, Solution, Like
-
+from django.contrib.auth.decorators import login_required
 
 @method_decorator(csrf_exempt, name="dispatch")
 class SolutionListView(ListView):
@@ -31,6 +31,7 @@ class SolutionListView(ListView):
         print(context["liked_solution"])
         return context
 
+    @login_required
     def post(self, request, *args, **kwargs):
         data = json.loads(request.body.decode("utf-8"))
         solution_id = data.get("solution_id", "")

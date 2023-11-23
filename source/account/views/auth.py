@@ -6,8 +6,10 @@ from account.forms import SignUpForm
 class CustomLoginView(LoginView):
     template_name = "login.html"
 
+
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy("login")
+
 
 class SignUpView(CreateView):
     template_name = "registration/signup.html"

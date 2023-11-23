@@ -8,7 +8,7 @@ from front_page.views import (
     CommentListView,
 )
 
-
+app_name = "front_page"
 urlpatterns = [
     path("task-of-day/", TaskDetailView.as_view(), name="task_of_day"),   
     path("run-code/", RunCodeView.as_view(), name="run_code"),   

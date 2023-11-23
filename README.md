@@ -29,3 +29,8 @@ remove crispy_form
 check if it is need to use corsheaders (in installed app in setting)
 
 remove font awesome and replace by your icon
+
+
+sort nicely header nav body footer
+
+fix footer
