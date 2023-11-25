@@ -3,9 +3,12 @@ import uuid
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models import QuerySet
-
+from pygments.lexers import get_lexer_by_name
 from front_page.models import Comment
-
+from pygments import highlight
+from pygments.lexers import PythonLexer
+from pygments.formatters import HtmlFormatter
+from pygments.styles import get_style_by_name
 
 class Solution(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, db_index=True, editable=False)
@@ -32,3 +35,9 @@ class Solution(models.Model):
 
     def get_comments(self) -> QuerySet[Comment]:
         return Comment.objects.filter(solution=self).order_by("-created_at")
+
+    @property
+    def python_syntax_highlighted_code(self):        
+        code = highlight(self.solution, PythonLexer(), HtmlFormatter(style="abap"))
+        print(code)
+        return code

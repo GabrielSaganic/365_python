@@ -30,6 +30,7 @@ check if it is need to use corsheaders (in installed app in setting)
 
 remove font awesome and replace by your icon
 
+proper authenticatin - https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication
 
 sort nicely header nav body footer
 

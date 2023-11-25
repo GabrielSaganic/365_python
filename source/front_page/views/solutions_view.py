@@ -2,13 +2,12 @@ import json
 from typing import Any
 
 from django.http import JsonResponse
-from django.contrib.auth import get_user_model
 from django.views.generic import ListView, DetailView
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseForbidden
 
 from front_page.models import Task, Solution, Like
-from django.contrib.auth.decorators import login_required
 
 @method_decorator(csrf_exempt, name="dispatch")
 class SolutionListView(ListView):
@@ -21,23 +20,24 @@ class SolutionListView(ListView):
     
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        # TODO get logged user
-        user = get_user_model().objects.first()
-        context["liked_solution"] = Like.objects.filter(
-            user=user,
-            solution__task=Task.get_today_task(),
-        ).values_list("solution__id", flat=True)
 
-        print(context["liked_solution"])
+        user = self.request.user
+        if user.is_authenticated:
+            context["liked_solution"] = Like.objects.filter(
+                user=user,
+                solution__task=Task.get_today_task(),
+            ).values_list("solution__id", flat=True)
+
         return context
 
-    @login_required
     def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden("User is not authenticated.")
+
         data = json.loads(request.body.decode("utf-8"))
         solution_id = data.get("solution_id", "")
         
-        # TODO get logged user
-        user = get_user_model().objects.first()
+        user = request.user
         solution = Solution.objects.get(id=solution_id)
         Like.objects.create(
             user=user,
@@ -54,12 +54,11 @@ class SolutionDetailView(DetailView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        # TODO get logged user
-        user = get_user_model().objects.first()
-        context["liked_solution"] = Like.objects.filter(
-            user=user,
-            solution__task=Task.get_today_task(),
-        ).values_list("solution__id", flat=True)
+        user = self.request.user
+        if user.is_authenticated:
+            context["liked_solution"] = Like.objects.filter(
+                user=user,
+                solution__task=Task.get_today_task(),
+            ).values_list("solution__id", flat=True)
         
-        print(context["liked_solution"])
         return context

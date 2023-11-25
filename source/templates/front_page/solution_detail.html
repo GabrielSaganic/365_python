@@ -5,6 +5,8 @@
 {% block title %}{{ task.summary }}{% endblock %}
 
 {% block left_content %}
+{{ object.python_syntax_highlighted_code|safe }}
+
     <left_h1>{{ task.summary }}</left_h1>
     <p class="scrollable-paragraph-90">{{ task.task }}</p>
 {% endblock %}
@@ -14,7 +16,7 @@
         <p class="gray-small-text">{{ object.user }}</p>
         <hr class="styled-line">
         <div class="solution-text-box">
-            <p>{{ object.solution }}</p>
+            {{ object.python_syntax_highlighted_code|safe }}
         </div>
         <hr class="styled-line">
         <div class="horizontal-container">

@@ -1,6 +1,6 @@
 h1 {
     font-size: 50px;
-    color: #7A92FF;
+    color: #8B7C74;
     font-weight: bold;
     text-align: center;
     margin: 0;
@@ -39,6 +39,19 @@ right_h1 {
 
 header {
     height: 8vh;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.center-header-div {
+    flex: 1;
+    text-align: center;
+}
+
+.right-header-div {
+    margin-right: 20px; /* Adjust margin as needed */
 }
 
 footer {
@@ -161,6 +174,8 @@ p {
 }
 
 .solution-text-box {
+    padding-left: 10px;
+    padding-right: 10px;
     flex: 1;
     Overflow-x: scroll;
     Overflow-y: scroll; 
@@ -394,16 +409,15 @@ textarea {
 }
 
 .auth-btn {
-    background-color: #199319;
     color: white;
     padding: 15px 25px;
     text-decoration: none;
     border-radius: 20%;
     height: 40px;
     font-weight: bold;
-    background-color: #FFE77A;
+    background-color: #7A92FF;
     border-radius: 12px;
-    color: #7A92FF;
+    color: #FFE77A;
     cursor: pointer;
     padding: 5px 10px;
     text-align: center;
@@ -416,11 +430,15 @@ textarea {
 }
 
 .auth-btn:hover {
-    background-color: #223094;
+    background-color: #8B7C74;
 }
 
 nav {
     display: flex;
     justify-content: space-around;
     padding: 10px;
+}
+
+.header-div {
+    right: 0;
 }

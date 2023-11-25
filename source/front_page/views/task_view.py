@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from django.views.generic import TemplateView
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import redirect
+from django.http import HttpResponse
 
 from front_page.models import Task, Solution
 
@@ -35,5 +35,5 @@ class TaskDetailView(TemplateView):
             task=Task.get_today_task(),
             solution=code,
         )
-        from django.http import JsonResponse
-        return JsonResponse({"data": "success"}, status=201)
+
+        return HttpResponse({"data": "success"}, status=201)
