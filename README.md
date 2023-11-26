@@ -35,3 +35,5 @@ proper authenticatin - https://www.django-rest-framework.org/api-guide/authentic
 sort nicely header nav body footer
 
 fix footer
+
+permissions to add

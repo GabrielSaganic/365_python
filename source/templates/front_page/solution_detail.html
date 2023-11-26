@@ -5,15 +5,15 @@
 {% block title %}{{ task.summary }}{% endblock %}
 
 {% block left_content %}
-{{ object.python_syntax_highlighted_code|safe }}
-
     <left_h1>{{ task.summary }}</left_h1>
     <p class="scrollable-paragraph-90">{{ task.task }}</p>
 {% endblock %}
 {% block right_content %}
 
     <div class="solution_box">
-        <p class="gray-small-text">{{ object.user }}</p>
+        <a href="{% url 'account:user_detail' pk=object.user.pk %}">
+            <p class="gray-small-text">{{ object.user }}</p>
+        </a>
         <hr class="styled-line">
         <div class="solution-text-box">
             {{ object.python_syntax_highlighted_code|safe }}

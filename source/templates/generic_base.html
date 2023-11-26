@@ -15,9 +15,14 @@
                 365 Python
             </h1>
         </div>
-    <div class="right-header-div">
+        <div class="right-header-div">
             {% if user.is_authenticated %}
-                {{ user }}
+            <a href="{% url 'account:user_detail' pk=user.pk %}">
+                <div class="profile-div">
+                    <img src="{% static user.get_safe_image_url %}" alt="User Avatar" class="rounded-image">
+                    <p class="gray-small-text">{{ user }}</p>
+                </div>
+            </a>
                 <a href="{% url 'account:logout' %}" class="auth-btn">Log out</a>
             {% else %}
                 <a href="{% url 'account:login' %}" class="auth-btn">Login</a>

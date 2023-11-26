@@ -51,7 +51,10 @@ header {
 }
 
 .right-header-div {
-    margin-right: 20px; /* Adjust margin as needed */
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
 footer {
@@ -130,8 +133,7 @@ p {
     height: 40%;
     background-color: white;
     margin: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 15px;
 }
 
 .post_comment_box{
@@ -151,19 +153,28 @@ p {
     padding: 5px;
 }
 
+.rounded-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px; 
+    object-fit: cover;
+    margin: 2px;
+}
+
 .styled-line {
     border: none;
     height: 1px;
     background-color: gray; 
-    width: 97%;
+    width: 100%;
     margin-top: 0;
     margin-bottom: 2px;
 }
 
-.gray-small-text{
+.gray-small-text {
     font-size: 14px; 
     color: gray;
     font-family: "Times New Roman", Times, serif;
+    padding: 0px;
 }
 
 .comment-text{
@@ -174,8 +185,6 @@ p {
 }
 
 .solution-text-box {
-    padding-left: 10px;
-    padding-right: 10px;
     flex: 1;
     Overflow-x: scroll;
     Overflow-y: scroll; 
@@ -184,6 +193,7 @@ p {
 .horizontal-container {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
 }
 
 .just-text-button {
@@ -196,6 +206,7 @@ p {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    padding: 0;
 }
 
 .post_comment_box{
@@ -410,10 +421,7 @@ textarea {
 
 .auth-btn {
     color: white;
-    padding: 15px 25px;
     text-decoration: none;
-    border-radius: 20%;
-    height: 40px;
     font-weight: bold;
     background-color: #7A92FF;
     border-radius: 12px;
@@ -426,7 +434,7 @@ textarea {
     border: 0;
     font-size: 20px;
     touch-action: manipulation;
-    margin-bottom: 10px;
+    margin: 0px 10px;
 }
 
 .auth-btn:hover {
@@ -441,4 +449,18 @@ nav {
 
 .header-div {
     right: 0;
+}
+
+.profile-div {
+    border: 1px solid gray;
+    padding: 0;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: whitesmoke;
+}
+
+a {
+    text-decoration: none;
 }

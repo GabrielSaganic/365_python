@@ -39,5 +39,4 @@ class Solution(models.Model):
     @property
     def python_syntax_highlighted_code(self):        
         code = highlight(self.solution, PythonLexer(), HtmlFormatter(style="abap"))
-        print(code)
         return code

@@ -13,10 +13,12 @@
     <right_h1>Browse best solutions</right_h1>
     {% for solution in solutions %}
     <div class="solution_box">
-        <p class="gray-small-text">{{ solution.user }}</p>
+        <a href="{% url 'account:user_detail' pk=solution.user.pk %}">
+            <p class="gray-small-text">{{ solution.user }}</p>
+        </a>
         <hr class="styled-line">
         <div class="solution-text-box">
-            <p>{{ solution.solution }}</p>
+            {{ solution.python_syntax_highlighted_code|safe }}
         </div>
             
             <hr class="styled-line">

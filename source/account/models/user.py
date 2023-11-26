@@ -43,7 +43,7 @@ class User(AbstractUser):
     last_name = models.CharField(_("last name"), max_length=30, blank=True)
     date_joined = models.DateTimeField(_("date joined"), auto_now_add=True)
     is_active = models.BooleanField(_("active"), default=True)
-    avatar = models.ImageField(upload_to="avatars/", null=True, blank=True)
+    avatar = models.ImageField(upload_to="avatars/",default="default_avatar.png", null=True, blank=True)
 
     objects = UserManager()
 
@@ -72,3 +72,7 @@ class User(AbstractUser):
         Sends an email to this User.
         """
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+    @property
+    def get_safe_image_url(self):
+        return getattr(self.avatar, "url", "")
